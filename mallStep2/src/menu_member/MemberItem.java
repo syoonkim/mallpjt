@@ -35,7 +35,8 @@ public class MemberItem implements MenuCommand {
 		System.out.println("[0.카테고리]");
 		int select = _Main.scan.nextInt();
 		if (select == 0) {
-			mallController.setMemberLoginID("MemberShop");			
+//			mallController.setMemberLoginID("MemberShop");
+			mallController.setNextMenu("MemberShop");
 		}
 		else if(select < 0 || select > itemSize){
 			System.out.println("[잘못된 번호입니다]");

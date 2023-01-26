@@ -10,6 +10,8 @@ import menu_admin.AdminAddItem;
 import menu_admin.AdminItem;
 import menu_admin.AdminMain;
 import menu_admin.AdminMember;
+import menu_board.BoardMain;
+import menu_board.BoardRead;
 import menu_mall.MallJoin;
 import menu_mall.MallLogin;
 import menu_mall.MallMain;
@@ -61,6 +63,9 @@ public class MallController {
 		mapContoller.put("MemberShop" , new MemberShop());
 		mapContoller.put("MemberItem" , new MemberItem());
 		mapContoller.put("MemberCart" , new MemberCart());
+		
+		mapContoller.put("BoardMain" , new BoardMain());
+		mapContoller.put("BoardRead", new BoardRead());
 		
 		menuCommand = mapContoller.get("MallMain");
 		menuCommand.init();

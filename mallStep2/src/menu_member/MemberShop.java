@@ -30,7 +30,8 @@ public class MemberShop implements MenuCommand {
 		System.out.println("[0.쇼핑몰]");
 		int select = _Main.scan.nextInt();		
 		if (select == 0) {
-			mallController.setMemberLoginID("MemberMain");			
+//			mallController.setMemberLoginID("MemberMain");		
+			mallController.setNextMenu("MemberMain");
 		}
 		else if(select < 0 || select > categorySize){
 			System.out.println("[잘못된 번호입니다]");
@@ -39,7 +40,8 @@ public class MemberShop implements MenuCommand {
 		else {
 			select -= 1;
 			categoryName = categoryList.get(select);
-			mallController.setMemberLoginID("MemberItem");		
+//			mallController.setMemberLoginID("MemberItem");		
+			mallController.setNextMenu("MemberItem");
 		}
 		return false;
 	}

@@ -17,13 +17,13 @@ public class MemberMain implements MenuCommand{
 				+ "[3.게시판] [4.자기정보] [0.메인화면] ");
 		int select = _Main.scan.nextInt();
 		if(select == 0) {		
-			mallController.setNextMenu("MemberMain");
+			mallController.setNextMenu("MallMain");
 		}else if(select == 1) {
 			mallController.setNextMenu("MemberShop");
 		}else if(select == 2) {
 			
 		}else if(select == 3) {	
-			System.out.println("[직접하기]");
+			mallController.setNextMenu("BoardMain");
 		}else if(select == 4) {
 			System.out.println("[직접하기]");
 		}		else {
