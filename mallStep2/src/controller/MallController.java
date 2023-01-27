@@ -7,6 +7,7 @@ import cart.CartDAO;
 import item.ItemDAO;
 import member.MemberDAO;
 import menu_admin.AdminAddItem;
+import menu_admin.AdminCart;
 import menu_admin.AdminItem;
 import menu_admin.AdminMain;
 import menu_admin.AdminMember;
@@ -16,6 +17,7 @@ import menu_mall.MallJoin;
 import menu_mall.MallLogin;
 import menu_mall.MallMain;
 import menu_member.MemberCart;
+import menu_member.MemberInfo;
 import menu_member.MemberItem;
 import menu_member.MemberMain;
 import menu_member.MemberShop;
@@ -56,6 +58,7 @@ public class MallController {
 		
 		mapContoller.put("AdminMain" , new AdminMain());
 		mapContoller.put("AdminItem" , new AdminItem());
+		mapContoller.put("AdminCart" , new AdminCart());
 		mapContoller.put("AdminMember" , new AdminMember());
 		mapContoller.put("AdminAddItem" , new AdminAddItem());
 		
@@ -63,6 +66,7 @@ public class MallController {
 		mapContoller.put("MemberShop" , new MemberShop());
 		mapContoller.put("MemberItem" , new MemberItem());
 		mapContoller.put("MemberCart" , new MemberCart());
+		mapContoller.put("MemberInfo" , new MemberInfo());
 		
 		mapContoller.put("BoardMain" , new BoardMain());
 		mapContoller.put("BoardRead", new BoardRead());

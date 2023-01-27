@@ -1,19 +1,33 @@
 package member;
 
+import java.util.ArrayList;
+
+import item.Item;
+
 public class Member {
 	private int memberNumber;
 	private String memberID;
 	private String memberPW;
 	private String memberName;
+	private ArrayList<Item> orderItemList;
 	
 	public Member() {}
 	
-	public Member(int memberNumber, String memberID, String memberPW, String memberName) {
+	public Member(int memberNumber, String memberID, String memberPW, String memberName, ArrayList<Item> orderItemList) {
 		this.memberNumber = memberNumber;
 		this.memberID = memberID;
 		this.memberPW = memberPW;
 		this.memberName = memberName;
+		this.orderItemList=orderItemList;
 	}
+	public ArrayList<Item> getOrderItemList() {
+		return orderItemList;
+	}
+
+	public void setOrderItemList(ArrayList<Item> orderItemList) {
+		this.orderItemList = orderItemList;
+	}
+
 	public int getMemberNumber() {
 		return memberNumber;
 	}

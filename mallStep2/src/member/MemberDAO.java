@@ -2,6 +2,8 @@ package member;
 
 import java.util.ArrayList;
 
+import controller.MallController;
+import item.Item;
 
 public class MemberDAO {
 	private MemberDAO() {}
@@ -10,6 +12,7 @@ public class MemberDAO {
 		return instance;
 	}
 	
+	ArrayList<Item> orderItemList=new ArrayList<Item>();
 	private ArrayList<Member> memberList;
 	private int memberNumber;
 	
@@ -52,14 +55,75 @@ public class MemberDAO {
 			System.out.println(i + 1 + ") " + memberList.get(i));
 		}
 	}
+
 	
 	public void setSampleData() {
 		Member member = 
-				new Member(getNextNumber(), "admin", "admin", "°ü¸®ÀÚ");
+				new Member(getNextNumber(), "admin", "admin", "°ü¸®ÀÚ",null);
 		addMember(member);		
-		member = new Member(getNextNumber(), "a", "a", "±èÃ¶¹Î");
+		member = new Member(getNextNumber(), "a", "a", "±èÃ¶¹Î",null);
 		addMember(member);
-		member = new Member(getNextNumber(), "b", "b", "ÀÌ¹Î¿µ");
+		member = new Member(getNextNumber(), "b", "b", "ÀÌ¹Î¿µ",null);
 		addMember(member);
+	}
+	
+	public void initOrderList(String id) {
+		int idx=-1;
+		for(int i=0;i<memberList.size();i++) {
+			if(memberList.get(i).getMemberID().equals(id)) idx=i;
+		}
+		memberList.get(idx).setOrderItemList(new ArrayList<Item>());
+	}
+	
+	public void addOrderList(Item it, String id) {
+		int idx=-1;
+		for(int i=0;i<memberList.size();i++) {
+			if(memberList.get(i).getMemberID().equals(id)) idx=i;
+		}
+		memberList.get(idx).getOrderItemList().add(it);
+	}
+	
+	
+	public void printOrderList() {
+		int idx=-1;
+		String curId=MallController.getInstance().getMemberLoginID();
+		System.out.println("===[ÁÖ¹®³»¿ª]===");
+		for(int i=0;i<memberList.size();i++) {
+			if(memberList.get(i).getMemberID().equals(curId)) idx=i;
+		}
+		System.out.println(memberList.get(idx).getOrderItemList());
+	}
+	
+	public void checkOrderHistory(String curId) {
+		int idx=-1;
+		for(int i=0;i<memberList.size();i++) {
+			if(memberList.get(i).getMemberID().equals(curId)) idx=i;
+		}
+		int size=memberList.get(idx).getOrderItemList().size();
+		if(size==0) {
+			System.out.println("ÁÖ¹® ³»¿ªÀÌ Á¸ÀçÇÏÁö ¾Ê´Â´Ù.");
+			return;
+		}
+		printOrderList();
+	}
+	
+	public Member findMember(int num) {
+		Member m=null;
+		for (int i = 0; i < memberList.size(); i++) {
+			if (num==memberList.get(i).getMemberNumber()) {
+				m=memberList.get(i);
+			}
+		}
+		return m;
+	}
+	
+	public String findMember2(int num) {
+		String id=null;
+		for (int i = 0; i < memberList.size(); i++) {
+			if (num==memberList.get(i).getMemberNumber()) {
+				id=memberList.get(i).getMemberID();
+			}
+		}
+		return id;
 	}
 }

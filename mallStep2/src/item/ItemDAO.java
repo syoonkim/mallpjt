@@ -116,5 +116,17 @@ public class ItemDAO {
 		}
 	}
 	
+	public Item getItem(String name) {
+		Item item=null;
+		for(int i=0;i<itemList.size();i++) {
+			if(itemList.get(i).getItemName().equals(name)) {
+				item=itemList.get(i);
+			}
+		}
+		return item;
+	}
+	
+	
+	
 	
 }

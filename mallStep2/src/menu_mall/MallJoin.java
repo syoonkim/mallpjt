@@ -30,7 +30,7 @@ public class MallJoin implements MenuCommand{
 			String name = _Main.scan.next();		
 			int memberNumber = memberDAO.getNextNumber();
 			Member member = 
-					new Member(memberNumber , id , pw , name);		
+					new Member(memberNumber , id , pw , name,null);		
 			memberDAO.addMember(member);
 			System.out.println("[회원가입 성공]");
 		}

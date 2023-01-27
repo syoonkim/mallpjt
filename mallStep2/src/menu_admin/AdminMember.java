@@ -22,7 +22,7 @@ public class AdminMember implements MenuCommand{
 		if(select == 0) {
 			mallController.setNextMenu("AdminMain");
 		}else if(select == 1) {
-			System.out.println("[직접하기]");
+			AdminDAO.getInstance().pickOneMember();
 		}else {
 			return true;
 		}

@@ -27,12 +27,12 @@ public class MemberCart implements MenuCommand{
 		System.out.println("[1.구입] [2.삭제] [0.쇼핑몰]");
 		int sel = _Main.scan.nextInt();
 		if(sel == 0) {
-			mallController.setNextMenu("MallMain");
+			mallController.setNextMenu("MemberMain");
 		}
 		else if(sel == 1) {
-			System.out.println("[직접하기]");
+			cartDAO.purchaseOneCartListItem(oneCartList);
 		}else if(sel == 2) {
-			System.out.println("[직접하기]");
+			cartDAO.removeOneCartListItem();
 		}
 		return false;
 	}

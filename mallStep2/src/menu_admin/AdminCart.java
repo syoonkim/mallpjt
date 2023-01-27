@@ -23,9 +23,9 @@ public class AdminCart implements MenuCommand {
 		System.out.println("[1.검색] [0.관리자메인]");
 		int select = _Main.scan.nextInt();
 		if (select == 0) {
-			mallController.setMemberLoginID("AdminMain");
+			mallController.setNextMenu("AdminMain");
 		}else if(select == 1){
-			System.out.println("[직접하기]");
+			AdminDAO.getInstance().pickOneCart();
 		}else {
 			return true;
 		}
